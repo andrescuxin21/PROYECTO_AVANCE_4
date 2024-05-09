@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Banquetera Personal</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        body {
+            background-color: #f7f3e9; /* Color café claro para el fondo */
+            color: #5d4739; /* Color café oscuro para el texto */
+        }
+        .navbar {
+            background-color: #5d4739; /* Color café oscuro para el fondo del navbar */
+        }
+        .navbar-brand,
+        .navbar-nav .nav-link {
+            color: #ffffff !important; /* Color blanco para los textos del navbar */
+        }
+        .jumbotron {
+            background-color: #3c2e23; /* Color café más oscuro para el jumbotron */
+            color: #f7f3e9; /* Color café claro para el texto del jumbotron */
+        }
+        .bg-light {
+            background-color: #ffffff; /* Fondo blanco para las secciones con fondo claro */
+        }
+        .bg-dark {
+            background-color: #3c2e23; /* Fondo café oscuro para las secciones con fondo oscuro */
+        }
+        .btn-primary {
+            background-color: #5d4739; /* Color café oscuro para los botones principales */
+            border-color: #5d4739;
+        }
+        .btn-primary:hover {
+            background-color: #3c2e23; /* Color café más oscuro al pasar el ratón */
+            border-color: #3c2e23;
+        }
+    </style>
+</head>
+<body>
+
+{% extends "base.html" %}
+
+{% block title %}Agenda de Menú - Iniciar Sesión{% endblock %}
+
+{% block content %}
+
+<section id="hero" class="d-flex justify-content-center align-items-center">
+    <div class="container text-center">
+        <h1 class="animate__animated animate__fadeInDown">Bienvenido a Tu Banquetera Personal</h1>
+        <p class="animate__animated animate__fadeInUp">¡Haz de tu evento una experiencia inolvidable con nuestros servicios de catering personalizados!</p>
+        <a href="#services" class="btn btn-primary btn-lg animate__animated animate__fadeIn">Nuestros Servicios</a>
+    </div>
+</section>
+
+<section id="about" class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h2 class="animate__animated animate__fadeInDown">Acerca de Nosotros</h2>
+                <p class="animate__animated animate__fadeInLeft">Somos Tu Banquetera Personal, dedicados a proporcionar servicios de catering excepcionales para una amplia gama de eventos. Con años de experiencia y un enfoque personalizado, estamos aquí para hacer que tu evento sea memorable y libre de preocupaciones.</p>
+            </div>
+            <div class="col-lg-6">
+                <img src="static/images/salon-bodas-borroso-abstracto.jpg" alt="Acerca de Nosotros" class="img-fluid rounded-circle animate__animated animate__fadeInRight">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="services" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center">Nuestros Servicios</h2>
+        <div class="row">
+            <div class="col-lg-4">
+                <!-- Columna de Sillas -->
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3">Sillas</h5>
+                        <div class="mb-3"></div>
+                        <div class="card mb-3 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">Tipo 1</h5>
+                                <p class="card-text">Descripción del servicio Tipo 1.</p>
+                            </div>
+                        </div>
+                        <div class="card mb-3 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">Tipo 2</h5>
+                                <p class="card-text">Descripción del servicio Tipo 2.</p>
+                            </div>
+                        </div>
+                        <!-- Agrega más tarjetas para otros tipos de sillas si es necesario -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <!-- Columna de Mesas -->
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3">Mesas</h5>
+                        <div class="mb-3"></div>
+                        <div class="card mb-3 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">Mesa Redonda</h5>
+                                <p class="card-text">Descripción del servicio Mesa Redonda.</p>
+                            </div>
+                        </div>
+                        <div class="card mb-3 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">Mesa Cuadrada</h5>
+                                <p class="card-text">Descripción del servicio Mesa Cuadrada.</p>
+                            </div>
+                        </div>
+                        <!-- Agrega más tarjetas para otros tipos de mesas si es necesario -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <!-- Columna de Manteles -->
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3">Manteles</h5>
+                        <div class="mb-3"></div>
+                        <div class="card mb-3 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">Mantel Rectangular</h5>
+                                <p class="card-text">Descripción del servicio Mantel Rectangular.</p>
+                            </div>
+                        </div>
+                        <div class="card mb-3 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">Mantel Redondo</h5>
+                                <p class="card-text">Descripción del servicio Mantel Redondo.</p>
+                            </div>
+                        </div>
+                        <!-- Agrega más tarjetas para otros tipos de manteles si es necesario -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Columna de Cristalería -->
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3">Cristalería</h5>
+                        <div class="mb-3"></div>
+                        <div class="card mb-3 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">tipos</h5>
+                                <p class="card-text">Descripción del servicio de vasos.</p>
+                            </div>
+                        </div>
+                        <div class="card mb-3 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">tipos</h5>
+                                <p class="card-text">Descripción del servicio de copas.</p>
+                            </div>
+                        </div>
+                        <!-- Agrega más tarjetas para otros tipos de cristalería si es necesario -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</section>
+<footer class="bg-dark text-white py-4">
+    <div class="container text-center">
+        <p>&copy; 2024 Tu Banquetera Personal. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+{% endblock %}

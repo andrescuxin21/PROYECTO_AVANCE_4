@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mi Banquetera Personal{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            padding-top: 130px; /* Aumentamos el espacio superior para alejar más el contenido del navbar */
+        }
+
+        .navbar {
+            background-color: #3c2e23; /* Café oscuro para el fondo del navbar */
+            height: 70px; /* Altura del navbar */
+            z-index: 1000; /* Asegurar que el navbar esté por encima de otros elementos */
+        }
+
+        .navbar-brand {
+            color: #f5f5f5; /* Blanco para el texto del navbar */
+            font-weight: bold;
+            font-size: 24px; /* Tamaño de la fuente */
+        }
+
+        .navbar-nav .nav-link {
+            color: #f5f5f5; /* Blanco para los enlaces del navbar */
+            font-weight: bold;
+            font-size: 18px; /* Tamaño de la fuente */
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #8B4513; /* Café claro al pasar el ratón sobre los enlaces */
+        }
+
+        /* BOTONES */
+        .form-label {
+            font-weight: bold;
+            color: #5d4739; /* Café oscuro para las etiquetas */
+        }
+
+        .form-control {
+            border-color: #5d4739; /* Café oscuro para el borde de los campos de formulario */
+        }
+
+        .btn-primary {
+            background-color: #5d4739; /* Café oscuro para el botón principal */
+            border-color: #5d4739;
+            font-weight: bold;
+        }
+
+        .btn-primary:hover {
+            background-color: #3c2e23; /* Café más oscuro al pasar el ratón */
+            border-color: #3c2e23;
+        }
+
+        /* Color café claro para el texto de Inicio */
+        .text-cafe-claro {
+            color: #8B4513; /* Código hexadecimal para un tono café claro */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Tu Banquetera Personal</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link"  href="/">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="/acerca">Acerca</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/contactanos">Contáctanos</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+            <!-- Contenido de la página -->
+        {% endblock %}
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

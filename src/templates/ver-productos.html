@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú de Comidas - Mi Menú Personal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            background-image: url('static/images/uwu.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            padding-top: 130px; /* Aumentamos el espacio superior para alejar más el contenido del navbar */
+        }
+
+        .navbar {
+            background-color: #3c2e23; /* Café oscuro para el fondo del navbar */
+            height: 70px; /* Altura del navbar */
+            z-index: 1000; /* Asegurar que el navbar esté por encima de otros elementos */
+        }
+
+        .navbar-brand {
+            color: #f5f5f5; /* Blanco para el texto del navbar */
+            font-weight: bold;
+            font-size: 24px; /* Tamaño de la fuente */
+        }
+
+        .navbar-nav .nav-link {
+            color: #f5f5f5; /* Blanco para los enlaces del navbar */
+            font-weight: bold;
+            font-size: 18px; /* Tamaño de la fuente */
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #8B4513; /* Café claro al pasar el ratón sobre los enlaces */
+        }
+
+        /* Estilos para el botón "Ver más detalles" */
+        .btn-ver-mas {
+            background-color: #4a342a; /* Café oscuro para el botón */
+            color: #ffffff; /* Blanco */
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn-ver-mas:hover {
+            background-color: #2e1b13; /* Color café más oscuro al pasar el ratón */
+        }
+
+        /* Estilos para las flechas de navegación */
+        .arrow-btn {
+            background: none;
+            border: none;
+            font-size: 36px;
+            color: #4a342a; /* Café oscuro */
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .arrow-btn:hover {
+            color: #2e1b13; /* Color café más oscuro al pasar el ratón */
+        }
+
+        /* Estilos para el contenedor del producto */
+        .producto-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semitransparente */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+        }
+
+        .producto-info {
+            margin-bottom: 20px;
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px); /* Movimiento hacia arriba */
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0); /* Volver a la posición original */
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .btn-regresar {
+            background-color: #5d4739; /* Café oscuro para el botón */
+            color: #ffffff; /* Blanco */
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: background-color 0.3s;
+        }
+
+        .btn-regresar:hover {
+            background-color: #4a342a; /* Café más oscuro al pasar el ratón */
+        }
+
+        .container {
+            padding: 2rem;
+        }
+
+        /* Animación para los elementos de la tabla */
+        .table tr {
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        /* Animación para el botón "Regresar a Menú" */
+        .btn-regresar {
+            transition: transform 0.3s;
+        }
+
+        .btn-regresar:hover {
+            transform: scale(1.05); /* Hacemos que el botón se agrande ligeramente al pasar el ratón */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Estilos para los botones */
+        .btn-primary {
+            background-color: #4a342a; /* Café oscuro para el botón principal */
+            border-color: #4a342a;
+        }
+
+        .btn-primary:hover {
+            background-color: #2e1b13; /* Color café más oscuro al pasar el ratón */
+            border-color: #2e1b13;
+        }
+
+        /* Estilos para los encabezados */
+        h1 {
+            margin-top: 3rem;
+            color: #3E2709; /* Color blanco para el título */
+        }
+
+        /* Estilos para la tabla */
+        .table {
+            background-color: #f5f5f5; /* Color de fondo para la tabla */
+        }
+
+        /* Estilos para el modal */
+        .modal-content {
+            background-color: #f5f5f5; /* Color de fondo para el modal */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilos para los campos de formulario */
+        .form-control {
+            border-color: #4a342a; /* Color del borde del campo de formulario */
+        }
+
+        /* Estilos para el botón de eliminar */
+        .btn-danger {
+            background-color: #801515; /* Color rojo oscuro para botón de eliminar */
+            border-color: #801515;
+        }
+
+        .btn-danger:hover {
+            background-color: #6a0f0f; /* Color rojo más oscuro al pasar el ratón */
+            border-color: #6a0f0f;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Tu Banquetera Personal</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link"  href="/">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/acerca">Acerca</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/contactanos">Contáctanos</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="mt-4">Productos</h1>
+                <div class="producto-container">
+                    <div class="producto-info fade-in">
+                        <!-- Aquí se mostrará la información del producto seleccionado -->
+                        <h3 id="productoNombre">Nombre del Producto</h3>
+                        <p id="productoCantidad">Cantidad: </p>
+                        <p id="productoDescripcion">Descripción del Producto</p>
+                        <img src="https://via.placeholder.com/150" alt="Producto Imagen">
+                    </div>
+                    <div class="d-flex justify-content-between w-100">
+                        <button class="arrow-btn" id="prevProducto"><i class="fas fa-chevron-left"></i></button>
+                        <button class="arrow-btn" id="nextProducto"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+                <a href="/inicio" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#confirmReturnModal">Regresar a Menú</a> <!-- Botón Regresar a Menú -->
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal de confirmación de retorno al menú principal -->
+    <div class="modal fade" id="confirmReturnModal" tabindex="-1" role="dialog" aria-labelledby="confirmReturnModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmReturnModalLabel">Confirmar para regresar a menu principal</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>¿Estás seguro de que deseas regresar al menú principal?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                    <a href="/inicio" class="btn btn-primary">Sí</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Lista de productos obtenidos de la base de datos
+        const productos = [
+            {% for task in tasks %}
+                {
+                    nombre: "{{ task[1] }}",
+                    cantidad: "{{ task[3] }}",
+                    descripcion: "{{ task[2] }}",
+                    imagen: "https://via.placeholder.com/150" // URL temporal de la imagen de muestra
+                },
+            {% endfor %}
+        ];
+
+        // Variables para el control de navegación entre productos
+        let currentIndex = 0;
+        const totalProductos = productos.length;
+
+        // Función para actualizar la información del producto en la interfaz
+        function actualizarProducto() {
+            const producto = productos[currentIndex];
+            document.getElementById('productoNombre').innerText = producto.nombre;
+            document.getElementById('productoCantidad').innerText = 'Cantidad: ' + producto.cantidad;
+            document.getElementById('productoDescripcion').innerText = producto.descripcion;
+            document.querySelector('.producto-info img').src = producto.imagen;
+        }
+
+        // Event listeners para los botones de flecha
+        document.getElementById('nextProducto').addEventListener('click', function() {
+            currentIndex = (currentIndex + 1) % totalProductos;
+            document.querySelector('.producto-info').classList.remove('fade-in');
+            setTimeout(function() {
+                actualizarProducto();
+                document.querySelector('.producto-info').classList.add('fade-in');
+            }, 500);
+        });
+
+        document.getElementById('prevProducto').addEventListener('click', function() {
+            currentIndex = (currentIndex - 1 + totalProductos) % totalProductos;
+            document.querySelector('.producto-info').classList.remove('fade-in');
+            setTimeout(function() {
+                actualizarProducto();
+                document.querySelector('.producto-info').classList.add('fade-in');
+            }, 500);
+        });
+        
+        // Mostrar el primer producto al cargar la página
+        actualizarProducto();
+    </script>
+</body>
+</html>
